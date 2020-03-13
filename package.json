@@ -1,0 +1,19 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "面试指导",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v-feng/Interview-Notebook.git"
+  },
+  "author": "maweifeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v-feng/Interview-Notebook/issues"
+  },
+  "homepage": "https://github.com/v-feng/Interview-Notebook#readme"
+}
