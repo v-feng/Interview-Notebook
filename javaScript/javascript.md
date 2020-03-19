@@ -3,14 +3,8 @@
 本部分主要是笔者在复习 JavaScript 相关知识和一些相关面试题时所做的笔记
 # 目录
 
-   # JavaScript 面试知识点总结
-   *******
-   本部分主要是笔者在复习 JavaScript 相关知识和一些相关面试题时所做的笔记
 
-   目录
-   ==
-
-        [1. 介绍 js 的基本数据类型。]()
+        1. 介绍 js 的基本数据类型。
         2. JavaScript 有几种类型的值？你能画一下他们的内存图吗？
         3. 什么是堆？什么是栈？它们之间有什么区别和联系？
         4. 内部属性 [[Class]] 是什么？
@@ -184,3 +178,52 @@
         172. js 中倒计时的纠偏实现？
         173. 进程间通信的方式？
         174. 如何查找一篇英文文章中出现频率最高的单词？
+
+
+
+
+
+
+
+        > 1.js 共有六种数据类型，分别是undefined、null、string、number、boolean、symbol(es6),代表创建后独一无二且不可变的    数据类型，为了解决可      能出现的全局变量冲突的问题。
+            typeof  xxx 得到以下值：undefined、String、object、number、boolean function、symbol
+            instanceof
+        > 2.栈：原始数据类型 （Number String undefined boolean）
+            堆：引用类型（对象、数组、函数）
+            区别：两种类型储存位置不同。
+            原始数据类型直接存储在栈中简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放在栈中。
+            引用数据类型存储在堆中，占据空间大、不固定。如果存储在栈中将会影响数据运行性能；引用数据类型在栈中存储了指针，指针指向了堆中该实体的原始地址。当解释器寻找引用值时，会首先检索到其在栈中的地址，获得地址后从堆中获取该实体。
+
+          ```
+          js 分为两种数据类型的值，基本数据类型，复杂数据类型
+          基本数据类型：undefined、null、string、number、boolean、symbol(es6)；
+          复杂数据类型：Object类型，所有其他的如 Array,Function、Date都是Object的子类；
+
+        > 3.堆和栈的概念在于数据结构中和操作系统内存中。
+            在数据结构中，栈中数据的存储方式是先进后出,儿堆是一个优先队列，按照优先级来排队的，优先级可以按照大小来规定。
+            在操作系统中，内存被分为栈区和堆区
+            栈区内有编译器自动分配释放，存放函数的参数值，局部变量值等。其操作方式类似于数据结构中的栈。
+            堆区内存一般由程序员分配释放，若程序员不释放，程序结束时可能由垃圾回收机制回收。
+
+          6.undefined是在作用域内声明未赋值。是undefined的，相反undeclared 是在作用域内未声明过得变量。是undeclared。
+          7.首先null和undefined都是基本数据类型。都只有一个值。null和undefined。
+            undefined代表含义是未定义，null代表空对象.通常情况声明为定义会返回undefined，null通常用来赋值给一些可能会返回对象的变量，用来初始化。
+          8.void 0 === undefined 
+          9.一个函数作用域中的变量声明应该尽量提到函数首部。
+            代码中出现地址时间等字符串时需用常量代替
+            进行比较时尽量使用‘===’和‘！==’
+            不要在内置对象上添加方法
+            for循环必须使用大括号
+            if语句必须使用大括号
+            switch语句必须带有default分支
+          10.所有的引用类型（function,Array,Object）都具有对象的特性，自由扩展属性
+             所有的引用类型（function,Array,Object）都有一个__proto__的属性。属性值是一个普通的对象。
+             所有函数都有一个prototype的属性，属性值也是一个普通对象
+             所有引用类型（数组、对象、函数）
+             isPrototypeOf() 判断一个对象是否在另一个对象的原型链上
+             ```
+             function Person(){};
+             var student = new Person()
+             console.log(Person.prototype.isPrototypeOf(student)) // true
+             Object.getPrototypeOf()
+             hasOwnProperty() 方法来判断一个属性是存在与实例中，还是存在于原型中
