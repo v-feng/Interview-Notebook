@@ -1,4 +1,5 @@
-#题目
+### 题目
+
 1.js 中使用typeof能得到几种类型？  js变量类型
 2.何时使用 === 何时使用 == ？      强制类型转换
 3.window.onload和DOMContentLoaded的区别？ 浏览器的渲染的过程
