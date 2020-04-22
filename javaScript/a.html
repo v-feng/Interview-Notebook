@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for (let index = 0; index < 10; index++) {
+        //     (function (index) {
+        //         var a = document.createElement('button');
+        //         a.innerHTML = index
+        //         a.addEventListener('click', function () {
+        //             alert(index)
+        //             console.log(index);
+        //         }, true)
+        //         document.body.appendChild(a)
+        //     })(index)
+        // }
+
+
+        for (let index = 0; index < 10; index++) {
+            var a = document.createElement('button');
+            a.innerHTML = index + '<br>';
+            a.addEventListener('click',function(){
+                alert(index)
+            })
+            document.body.appendChild(a)
+        }
+
+
+        function isFirstLoad(){
+            var _list = [];
+            return function (id){
+                if(_list.indexOf(id)>=0){
+                    return false
+                }else{
+                    _list.push(id)
+                    return true
+                }
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

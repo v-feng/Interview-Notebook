@@ -93,6 +93,12 @@ Foo.prototype.alert = function(){
 
 // 原型链
 
+class  Foo{
+    
+}
+
+var f = new Foo()
+
 function Person(){
     this.name = function(){
         console.log('maweifeng')
@@ -211,9 +217,139 @@ for (item in xiaoming){
 
 // 作用域与闭包
 
-
+### 题目
 - 说一下变量提升
 - 说明this 几种不同的使用场景
 - 创建是个<a>标签，点击时弹出对应的序号
 - 如何理解作用域
 - 实际开发中闭包的应用
+
+### 知识点
+    
+ - 执行上下文
+ - this
+ - 作用域
+ - 作用域链
+ - 闭包
+
+
+
+                                            # 执行上下文
+
+- 范围 ： 一段<script> 或者一个函数
+- 全局 ： 变量定义、函数声明 一段 <script> 
+- 函数 ： 变量定义、函数声明、this、argument 函数
+
+
+
+
+
+函数声明   函数表达式
+fn()
+function fn(){
+    表达式
+}
+
+
+
+var a = function(){
+    // 表达式
+}
+
+
+
+const a = {
+    name:'maweifeng',
+    fn:function(){
+        confirm(this.name)
+    }
+}
+
+
+a.fn()
+a.fn.call({name:'daguinv'})
+var fn1 = a.fn
+fn1()
+
+
+// this 
+* 作为构造函数
+* 作为对象属性
+* 作为普通函数
+* bind call apply
+
+
+function Foo(name){   
+    this.name = name   
+}
+var f = new Foo('maweifeng')
+
+
+var obj ={
+name:'maweifeng',
+printName:function(){
+    console.log(this.name)
+    }
+}
+obj.printName()
+
+
+
+
+
+function fn (){
+    console.log(this)
+}
+
+fn()
+
+// call bind apply
+
+function fn1 (name){
+    alert(name)
+    console.log(this)
+}
+
+fn1.call({x:100},zhangsan)
+------------------
+// 闭包
+
+function F1(){
+    var a = 100
+
+    // 返回一个函数 （函数作为返回值）
+    return function (){
+        console.log(a)
+    }
+}
+
+var f1 = F1()
+var a =200
+f1()
+
+
+
+
+
+function Elem(id){
+    this.elme = document.getElementByClassName(id)
+}
+
+Elem.prototype.html = function (value){
+    var elem = this.elme
+    if(value){
+        elem.innerHTML = value
+    }else{
+        return elem
+    }
+}
+Elem.proto.on = function(){
+    var elem = this.elme
+    elem.addEventListener(type,fn)
+}
+
+var f = new Elem()
+f.html()
+f.on('click',function(){
+    alert('maweifeng')
+})
