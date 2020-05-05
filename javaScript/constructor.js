@@ -15,7 +15,7 @@ function Elme(id) {
 
 Elme.prototype.html = function (val) {
     var elme = this.elme;
-    if (val)}{
+    if (val){
     elme.innerHTML = val;
     return this //链式调用
 }else {
@@ -40,4 +40,15 @@ for (var i = 0; i < 9; i++) {
             alert(i)
         })
     })(i)
+}
+
+
+var new2 = function(){
+    var o = Object.create(func.prototype)
+    var k = fun.call(o)
+    if(typeof k === 'object'){
+        return k
+    }else {
+        return o
+    }
 }

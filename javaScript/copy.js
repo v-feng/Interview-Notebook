@@ -34,24 +34,100 @@ function deepCopy() {
 /* 随机排序 */
 
 
-let arr = [343,23,43453,45454,889]
-function random(){
+let arr = [343, 23, 43453, 45454, 889]
+function random() {
     let len = arr.length
     let rst = []
-    for (let i = 0;i>len;i++){
-        let randomIndex = Math.floor(Math.random()*i)
+    for (let i = 0; i > len; i++) {
+        let randomIndex = Math.floor(Math.random() * i)
         rst.push(arr[randomIndex])
-        arr.splice(randomIndex,1)
+        arr.splice(randomIndex, 1)
     }
     return rst
 }
 
-function quchong (){
+function quchong() {
     let newArr = []
-    for(let i=0;i<arr.length;i++){
-        if(newArr.indexOf(arr[i])===-1){
+    for (let i = 0; i < arr.length; i++) {
+        if (newArr.indexOf(arr[i]) === -1) {
             newArr.push(arr[i])
         }
     }
     return newArr
 }
+
+
+
+console.log('1');
+setTimeout(() => {
+    console.log('2');
+    process.nextTick(function () {
+        console.log('3');
+    })
+    new Promise((resolve) => {
+        console.log('4');
+        resolve()
+    }).then(() => {
+        console.log('5');
+    })
+})
+
+process.nextTick(() => {
+    console.log('6')
+})
+new Promise((resolve) => {
+    console.log('7');
+    resolve()
+}).then(() => {
+    console.log('8');
+})
+
+
+setTimeout(() => {
+    console.log('9');
+    process.nextTick(() => {
+        console.log(10);
+    })
+    new Promise((resolve) => {
+        console.log('11')
+        resolve()
+    }).then(() => {
+        console.log('12');
+
+    })
+})
+
+
+
+new Promise((rsolve) => {
+    console.log('promise2');
+    resolve()
+}).then(() => {
+    console.log('then21');
+}).then(() => {
+    console.log('then23');
+})
+
+
+const p1 = new Promise((resolve, reject) => {
+    console.log('promise1');
+    resolve();
+}).then(() => {
+    console.log('then11');
+    new Promise((resolve, reject) => {
+        console.log('promise2');
+        resolve();
+    }).then(() => {
+        console.log('then21');
+    }).then(() => {
+        console.log('then23');
+    }).tnen(() =>{
+        console.log('df');
+        
+    })
+}).then(() => {
+    console.log('then31');
+});
+
+
+
